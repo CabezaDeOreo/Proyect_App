@@ -1,3 +1,34 @@
+def niños(username):
+    pass
+    #username=int(username)
+    #Marcelo=75599279
+    #Mariano=75599278
+    #Alexandra=75599277
+    #Gael=75599276
+#-----------------------------------------
+def error_dni():
+    inv_dni=input("""
+El DNI consta de 8 caracteres
+Por favor, escribalo de nuevo.
+DNI: """)
+    while not len(inv_dni)==8:
+        inv_dni=input("""
+El DNI consta de 8 caracteres
+Por favor, escribalo de nuevo.
+DNI: """)
+    niños(inv_dni)
+
+#-----------------------------------------
+def iniciar_sesion():
+    username=input(""""
+Escriba el DNI de su menor hijo
+DNI: """)
+    if len(username)==8:
+        niños(username)
+    else:
+        error_dni()
+
+#-------------------------------------------------------
 def error_loop():
     error=input("""
 Opción inválida.
@@ -18,7 +49,7 @@ Por favor, escriba una opción correcta: """)
 #------------------------------------------------------
 def in_rg(mssg_wllk):
     if mssg_wllk=="I":
-        print("Iniciar sesion")
+        iniciar_sesion()
     elif mssg_wllk=="R":
         print("Registrarse")
     else:
