@@ -1,12 +1,12 @@
 def niños(username):
     username=int(username)
-    if username==75599279:
+    if username==75599278:
         print("Bienvenid@ Marcelo :)")
-    elif username==75599278:
-        print("Bienvenid@ Mariano :)")
     elif username==75599277:
-        print("Bienvenid@ Alexandra :)")
+        print("Bienvenid@ Mariano :)")
     elif username==75599276:
+        print("Bienvenid@ Alexandra :)")
+    elif username==75599275:
         print("Bienvenid@ Gael :)")
 #-------------------------------
 def error_dni():
