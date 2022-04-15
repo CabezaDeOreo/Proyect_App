@@ -1,6 +1,7 @@
 def niños(username):
     username=int(username)
     if username==75599279:
+<<<<<<< HEAD
         print("Bienvenid@ Marcelo :)")
     elif username==75599278:
         print("Bienvenid@ Mariano :)")
@@ -8,6 +9,15 @@ def niños(username):
         print("Bienvenid@ Alexandra")
     elif username==75599276:
         print("Bienvenid@ Gael :)")
+=======
+        print("Bienvenid Marcelo :)")
+    elif username==75599278:
+        print("Bienvenid Mariano :)")
+    elif username==75599277:
+        print("Bienvenid Alexandra")
+    elif username==75599276:
+        print("Bienvenid Gael :)")
+>>>>>>> prueba
 #-------------------------------
 def error_dni():
     inv_dni=input("""
