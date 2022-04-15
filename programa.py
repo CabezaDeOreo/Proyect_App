@@ -1,11 +1,14 @@
 def niños(username):
-    pass
-    #username=int(username)
-    #Marcelo=75599279
-    #Mariano=75599278
-    #Alexandra=75599277
-    #Gael=75599276
-#-----------------------------------------
+    username=int(username)
+    if username==75599279:
+        print("Bienvenido Marcelo :)")
+    elif username==75599278:
+        print("Bienvenido Mariano :)")
+    elif username==75599277:
+        print("Bienvenida Alexandra")
+    elif username==75599276:
+        print("Bienvenido Gael :)")
+#-------------------------------
 def error_dni():
     inv_dni=input("""
 El DNI consta de 8 caracteres
