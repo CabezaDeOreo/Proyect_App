@@ -1,13 +1,13 @@
 def niños(username):
     username=int(username)
     if username==75599279:
-        print("Bienvenido Marcelo :)")
+        print("Bienvenid Marcelo :)")
     elif username==75599278:
-        print("Bienvenido Mariano :)")
+        print("Bienvenid Mariano :)")
     elif username==75599277:
-        print("Bienvenida Alexandra")
+        print("Bienvenid Alexandra")
     elif username==75599276:
-        print("Bienvenido Gael :)")
+        print("Bienvenid Gael :)")
 #-------------------------------
 def error_dni():
     inv_dni=input("""
