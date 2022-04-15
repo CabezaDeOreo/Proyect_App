@@ -1,11 +1,11 @@
 def niños(username):
     username=int(username)
-    if username==75599279:
+    if username==75599270:
         print("Bienvenid Marcelo :)")
     elif username==75599278:
         print("Bienvenid Mariano :)")
     elif username==75599277:
-        print("Bienvenid Alexandra")
+        print("Bienvenid Alexandra :)")
     elif username==75599276:
         print("Bienvenid Gael :)")
 #-------------------------------
