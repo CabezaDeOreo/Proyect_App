@@ -42,7 +42,16 @@ DNI: """)
         niños(username)
     else:
         error_dni()
-
+#-------------------------------------------------------
+def registrarse():
+    dni_est=input("""Para registrarse correctamente escriba
+el DNI de su menor hijo para poder guardarlo en nuestro sistema.
+DNI: """)
+    while not (len(dni_est)==8):
+        dni_est=input("""El DNI consta de 8 caracteres.
+Por favor, escribalo de nuevo.
+DNI:  """)
+    reg_corre=input("Registrado con éxito")
 #-------------------------------------------------------
 def error_loop():
     """Mensaje de error al
@@ -72,7 +81,7 @@ def in_rg(mssg_wllk):
     if mssg_wllk=="I":
         iniciar_sesion()
     elif mssg_wllk=="R":
-        print("Registrarse")
+        registrarse()
     else:
         error_loop()
 #---------------------------------------------------------
