@@ -2,14 +2,19 @@ def niños(username):
     """Mensaje de bienvenida al
     usuario que inicio sesión"""
     username=int(username)
-    if username==75599278:
-        print("Bienvenid@ Marcelo :)")
-    elif username==75599277:
-        print("Bienvenid@ Mariano :)")
-    elif username==75599276:
-        print("Bienvenid@ Alexandra :)")
-    elif username==75599275:
-        print("Bienvenid@ Gael :)")
+    dict_est={
+        75599278:"Marcelo",
+        75599277:"Mariano",
+        75599276:"Alexandra",
+        75599275:"Gael"
+    }
+    for estudiantes in dict_est.keys():
+        if estudiantes==username:
+            print(f'Bienvenid@ {dict_est[estudiantes]}')
+            break
+        else:
+            print(f'El estudiante no existe')
+
 #-------------------------------
 def error_dni():
     """DNI erroneo, o posee
