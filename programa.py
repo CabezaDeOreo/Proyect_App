@@ -1,4 +1,6 @@
 def niños(username):
+    """Mensaje de bienvenida al
+    usuario que inicio sesión"""
     username=int(username)
     if username==75599278:
         print("Bienvenid@ Marcelo :)")
@@ -10,6 +12,9 @@ def niños(username):
         print("Bienvenid@ Gael :)")
 #-------------------------------
 def error_dni():
+    """DNI erroneo, o posee
+    menos de 8 caracteres o más
+    que este."""
     inv_dni=input("""
 El DNI consta de 8 caracteres
 Por favor, escribalo de nuevo.
@@ -23,6 +28,8 @@ DNI: """)
 
 #-----------------------------------------
 def iniciar_sesion():
+    """Relleno de datos
+    para iniciar sesion"""
     username=input(""""
 Escriba el DNI de su menor hijo
 DNI: """)
@@ -33,6 +40,8 @@ DNI: """)
 
 #-------------------------------------------------------
 def error_loop():
+    """Mensaje de error al
+    seleccionar una opción inválida."""
     error=input("""
 Opción inválida.
 (I) Iniciar sesion
@@ -51,6 +60,10 @@ Por favor, escriba una opción correcta: """)
     in_rg(error)
 #------------------------------------------------------
 def in_rg(mssg_wllk):
+    """Se ejecuta una
+    función dependiendo de
+    la opción que haya elegido
+    el usuario. """
     if mssg_wllk=="I":
         iniciar_sesion()
     elif mssg_wllk=="R":
@@ -59,6 +72,9 @@ def in_rg(mssg_wllk):
         error_loop()
 #---------------------------------------------------------
 def inicio_app():
+    """Mensaje de bienvenida
+    de la app y las opciones
+    correspondientes."""
     mssg_wllk=input("""Sea bienvenido a la aplicación
 de la movilidad número 11. #DeVueltaAlCole
 
