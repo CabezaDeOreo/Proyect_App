@@ -5,7 +5,7 @@ def niños(username):
     dict_est={
         75599278:"Marcelo",
         75599277:"Mariano",
-        75599276:"Alexandra",
+        75599276:"Alexandro",
         75599275:"Gael"
     }
     for estudiantes in dict_est.keys():
