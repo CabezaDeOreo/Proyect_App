@@ -1,28 +1,48 @@
+from unicodedata import name
+
+
 def niños(name):
     """Mensaje de bienvenida al
     usuario que inicio sesión"""
     print(f'Bienvenido {name} :)')
 
+#--------------------------------------------------
+
+def sign_in():
+    print("Para iniciar sesión, relleno lo siguiente.")
+    n_st=input("Nombre del estudiante: ")
+    d_st=input("DNI: ")
+    print("""El estudiante que usted indica no existe en nuestro sistema.""")
+    register=input("¿Desea registrarse? (Si/No): ")
+    register=register.strip()
+    register=register.capitalize()
+    if register=="Si":
+        sign_up()
+    elif register=="No":
+        print("Gracias por su visita :)")
+    else:
+        print("Opción inválida")
+
 #------------------------------------------------
 
-def error_dni():
-    """DNI erroneo, o posee
-    menos de 8 caracteres o más
-    que este."""
-    inv_dni=input("""
-El DNI consta de 8 caracteres
-Por favor, escribalo de nuevo.
-DNI: """)
-    while not len(inv_dni)==8:
-        inv_dni=input("""
-El DNI consta de 8 caracteres
-Por favor, escribalo de nuevo.
-DNI: """)
-    niños(inv_dni)
-
+def error_gen(dic_est):
+    """Error generado por haber
+    puesto algun dato erroneo"""
+    print("""El nombre del estudiante o el DNI que introdujo es incorrecto.
+Por favor, rellene los datos correctamente.""")
+    name_stn=input("Nombre del estudiante: ")
+    dni_stn=input("DNI: ")
+    dic_error_si=dic_est
+    for d in dic_error_si:
+        if (name_stn==dic_error_si[d]) and (dni_stn==d):
+            niños(name_stn)
+            break
+        else:
+            error_gen(dic_est)
+            break
 #-----------------------------------------
 
-def sign_in(dic_est):
+def sign_up_to_sign_in(dic_est):
     """Relleno de datos
     para iniciar sesion"""
     print("""
@@ -35,16 +55,16 @@ Incie sesión rellenando lo siguiente:""")
             niños(name)
             break
         elif (name==students_sp[dni]) and (len(dni_8)!=8):
-            error_dni()
+            error_gen(dic_est)
         elif (name!=students_sp[dni]) and (dni==dni_8):
-            print("""Disculpe, pero el nombre que usted indica
-no se encuentra en nuestro sistema""")
+            error_gen(dic_est)
+
 #---------------------------------------------------------
 
 def database_students(name_student,dni_st):
     dic_est={}
     dic_est[dni_st]=name_student
-    sign_in(dic_est)
+    sign_up_to_sign_in(dic_est)
 
 #-------------------------------------------------------
 
@@ -70,31 +90,39 @@ DNI:  """)
 def error_loop():
     """Mensaje de error al
     seleccionar una opción inválida."""
-    error=input("""
+    print("""
 Opción inválida.
 
-Escribe una de las opciones (Si/No): """)
+Por favor, escoja una de las opciones:
+(I) Iniciar sesión
+(R) Registrarse
+""")
+    error=input("(I/R): ")
     error=error.strip()
-    error=error.capitalize()
-    while not (error=="Si" or error=="No"):
-        error=input("""
+    error=error.upper()
+    while not (error=="I" or error=="R"):
+        print("""
 Opción inválida.
 
-Escrive una de las opciones (Si/No): """)
+Por favor, escoja una de las opciones:
+(I) Iniciar sesión
+(R) Registrarse""")
+        error=input("(I/R): ")
+        error=error.strip()
         error=error.upper()
     options(error)
 
 #------------------------------------------------------
 
-def options(mssg_wllk):
+def options(option_bg):
     """Se ejecuta una
     función dependiendo de
     la opción que haya elegido
     el usuario. """
-    if mssg_wllk=="Si":
+    if option_bg=="R":
         sign_up()
-    elif mssg_wllk=="No":
-        print("Está bien, adiós :(")
+    elif option_bg=="I":
+        sign_in()
     else:
         error_loop()
 
@@ -104,13 +132,16 @@ def my_app():
     """Mensaje de bienvenida
     de la app y las opciones
     correspondientes."""
-    mssg_wllk=input("""Sea bienvenido a la aplicación
+    print("""Sea bienvenido a la aplicación
 de la movilidad número 11. #DeVueltaAlCole
 
-¿Desea registrarse? (Si/No): """)
-    mssg_wllk=mssg_wllk.strip()
-    mssg_wllk=mssg_wllk.capitalize()
-    options(mssg_wllk)
+(I) Iniciar sesión
+(R) Registrarse
+ """)
+    option_bg=input("Elija una opción: ")    
+    option_bg=option_bg.strip()
+    option_bg=option_bg.capitalize()
+    options(option_bg)
 
 
 if __name__=="__main__":
