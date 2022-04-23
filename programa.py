@@ -1,21 +1,10 @@
-def niños(username):
+def niños(name):
     """Mensaje de bienvenida al
     usuario que inicio sesión"""
-    username=int(username)
-    dict_est={
-        75599278:"Marcelo",
-        75599277:"Mariano",
-        75599276:"Alexandro",
-        75599275:"Gael"
-    }
-    for estudiantes in dict_est.keys():
-        if estudiantes==username:
-            print(f'Bienvenid@ {dict_est[estudiantes]}')
-            break
-        else:
-            print(f'El estudiante no existe')
+    print(f'Bienvenido {name} :)')
 
-#-------------------------------
+#------------------------------------------------
+
 def error_dni():
     """DNI erroneo, o posee
     menos de 8 caracteres o más
@@ -32,72 +21,97 @@ DNI: """)
     niños(inv_dni)
 
 #-----------------------------------------
-def iniciar_sesion():
+
+def sign_in(dic_est):
     """Relleno de datos
     para iniciar sesion"""
-    username=input(""""
-Escriba el DNI de su menor hijo
-DNI: """)
-    if len(username)==8:
-        niños(username)
-    else:
-        error_dni()
+    print("""
+Incie sesión rellenando lo siguiente:""")
+    name=input("Nombre del estudiante: ")
+    dni_8=input("DNI: ")
+    students_sp=dic_est
+    for dni in students_sp:
+        if (name==students_sp[dni]) and (dni==dni_8):
+            niños(name)
+            break
+        elif (name==students_sp[dni]) and (len(dni_8)!=8):
+            error_dni()
+        elif (name!=students_sp[dni]) and (dni==dni_8):
+            print("""Disculpe, pero el nombre que usted indica
+no se encuentra en nuestro sistema""")
+#---------------------------------------------------------
+
+def database_students(name_student,dni_st):
+    dic_est={}
+    dic_est[dni_st]=name_student
+    sign_in(dic_est)
+
 #-------------------------------------------------------
-def registrarse():
-    dni_est=input("""Para registrarse correctamente escriba
-el DNI de su menor hijo para poder guardarlo en nuestro sistema.
-DNI: """)
-    while not (len(dni_est)==8):
-        dni_est=input("""El DNI consta de 8 caracteres.
+
+def sign_up():
+    print("""
+Para registrarse con éxito, rellene los siguientes datos""")
+    name_student=input("""
+Escriba el nombre del estudiante: """)
+    while not (len(name_student)>0):
+        name_student=input("""Es obligatorio rellenar este dato
+Por favor, escribe el nombre del estudiante: """)
+    dni_st=input("""Para terminar con el resgistro correctamente escribe
+el DNI del estudiante: """)
+    while not (len(dni_st)==8):
+        dni_st=input("""El DNI consta de 8 caracteres.
 Por favor, escribalo de nuevo.
 DNI:  """)
-    reg_corre=input("Registrado con éxito")
+    print("Registrado con éxito")
+    database_students(name_student,dni_st)
+
 #-------------------------------------------------------
+
 def error_loop():
     """Mensaje de error al
     seleccionar una opción inválida."""
     error=input("""
 Opción inválida.
-(I) Iniciar sesion
-(R) Registrarse
 
-Por favor, escriba una opción correcta : """)
-    error=error.upper()
-    while not (error=="I" or error=="R"):
+Escribe una de las opciones (Si/No): """)
+    error=error.strip()
+    error=error.capitalize()
+    while not (error=="Si" or error=="No"):
         error=input("""
 Opción inválida.
-(I) Iniciar sesion
-(R) Registrarse
 
-Por favor, escriba una opción correcta: """)
+Escrive una de las opciones (Si/No): """)
         error=error.upper()
-    in_rg(error)
+    options(error)
+
 #------------------------------------------------------
-def in_rg(mssg_wllk):
+
+def options(mssg_wllk):
     """Se ejecuta una
     función dependiendo de
     la opción que haya elegido
     el usuario. """
-    if mssg_wllk=="I":
-        iniciar_sesion()
-    elif mssg_wllk=="R":
-        registrarse()
+    if mssg_wllk=="Si":
+        sign_up()
+    elif mssg_wllk=="No":
+        print("Está bien, adiós :(")
     else:
         error_loop()
+
 #---------------------------------------------------------
-def inicio_app():
+
+def my_app():
     """Mensaje de bienvenida
     de la app y las opciones
     correspondientes."""
     mssg_wllk=input("""Sea bienvenido a la aplicación
 de la movilidad número 11. #DeVueltaAlCole
 
-(I) Iniciar sesión
-(R) Registrarse
+¿Desea registrarse? (Si/No): """)
+    mssg_wllk=mssg_wllk.strip()
+    mssg_wllk=mssg_wllk.capitalize()
+    options(mssg_wllk)
 
-Escriba una de las opciones: """)
-    mssg_wllk=mssg_wllk.upper()
-    in_rg(mssg_wllk)
 
 if __name__=="__main__":
-    inicio_app()
+    my_app()
