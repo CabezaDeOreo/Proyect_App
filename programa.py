@@ -1,5 +1,3 @@
-from unicodedata import name
-
 
 def niños(name):
     """Mensaje de bienvenida al
@@ -10,8 +8,8 @@ def niños(name):
 
 def sign_in():
     print("Para iniciar sesión, relleno lo siguiente.")
-    n_st=input("Nombre del estudiante: ")
-    d_st=input("DNI: ")
+    n_st=input("""Nombre del estudiante: """)
+    d_st=input("""DNI: """)
     print("""El estudiante que usted indica no existe en nuestro sistema.""")
     register=input("¿Desea registrarse? (Si/No): ")
     register=register.strip()
