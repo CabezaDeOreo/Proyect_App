@@ -2,33 +2,42 @@
 def niños(name):
     """Mensaje de bienvenida al
     usuario que inicio sesión"""
-    print(f'Bienvenido {name} :)')
+    print(f'''
+Bienvenido {name} :)''')
 
 #--------------------------------------------------
 
 def sign_in():
-    print("Para iniciar sesión, relleno lo siguiente.")
-    n_st=input("""Nombre del estudiante: """)
+    print("""-----------------------------------------------
+Para iniciar sesión, relleno lo siguiente.""")
+    n_st=input("""
+Nombre del estudiante: """)
     d_st=input("""DNI: """)
-    print("""El estudiante que usted indica no existe en nuestro sistema.""")
-    register=input("¿Desea registrarse? (Si/No): ")
+    print("""---------------------------------------------------
+El estudiante que usted indica no existe en nuestro sistema.""")
+    register=input("""
+¿Desea registrarse? (Si/No): """)
     register=register.strip()
     register=register.capitalize()
     if register=="Si":
         sign_up()
     elif register=="No":
-        print("Gracias por su visita :)")
+        print("""
+Gracias por su visita :)""")
     else:
-        print("Opción inválida")
+        print("""
+Opción inválida""")
 
 #------------------------------------------------
 
 def error_gen(dic_est):
     """Error generado por haber
     puesto algun dato erroneo"""
-    print("""El nombre del estudiante o el DNI que introdujo es incorrecto.
+    print("""--------------------------------------------------
+El nombre del estudiante o el DNI que introdujo es incorrecto.
 Por favor, rellene los datos correctamente.""")
-    name_stn=input("Nombre del estudiante: ")
+    name_stn=input("""
+Nombre del estudiante: """)
     dni_stn=input("DNI: ")
     dic_error_si=dic_est
     for d in dic_error_si:
@@ -43,9 +52,10 @@ Por favor, rellene los datos correctamente.""")
 def sign_up_to_sign_in(dic_est):
     """Relleno de datos
     para iniciar sesion"""
-    print("""
+    print("""------------------------------------
 Incie sesión rellenando lo siguiente:""")
-    name=input("Nombre del estudiante: ")
+    name=input("""
+Nombre del estudiante: """)
     dni_8=input("DNI: ")
     students_sp=dic_est
     for dni in students_sp:
@@ -67,20 +77,22 @@ def database_students(name_student,dni_st):
 #-------------------------------------------------------
 
 def sign_up():
-    print("""
+    print("""------------------------------------------------
 Para registrarse con éxito, rellene los siguientes datos""")
     name_student=input("""
 Escriba el nombre del estudiante: """)
     while not (len(name_student)>0):
-        name_student=input("""Es obligatorio rellenar este dato
+        name_student=input("""
+Es obligatorio rellenar este dato.
 Por favor, escribe el nombre del estudiante: """)
-    dni_st=input("""Para terminar con el resgistro correctamente escribe
-el DNI del estudiante: """)
+    dni_st=input("DNI: ")
     while not (len(dni_st)==8):
-        dni_st=input("""El DNI consta de 8 caracteres.
+        dni_st=input("""
+El DNI consta de 8 caracteres.
 Por favor, escribalo de nuevo.
 DNI:  """)
-    print("Registrado con éxito")
+    print("""
+Registrado con éxito""")
     database_students(name_student,dni_st)
 
 #-------------------------------------------------------
@@ -88,7 +100,7 @@ DNI:  """)
 def error_loop():
     """Mensaje de error al
     seleccionar una opción inválida."""
-    print("""
+    print("""----------------------------------------
 Opción inválida.
 
 Por favor, escoja una de las opciones:
@@ -105,7 +117,8 @@ Opción inválida.
 Por favor, escoja una de las opciones:
 (I) Iniciar sesión
 (R) Registrarse""")
-        error=input("(I/R): ")
+        error=input("""
+(I/R): """)
         error=error.strip()
         error=error.upper()
     options(error)
@@ -136,7 +149,8 @@ de la movilidad número 11. #DeVueltaAlCole
 (I) Iniciar sesión
 (R) Registrarse
  """)
-    option_bg=input("Elija una opción: ")    
+    option_bg=input("""
+Elija una opción: """)    
     option_bg=option_bg.strip()
     option_bg=option_bg.capitalize()
     options(option_bg)
