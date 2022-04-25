@@ -3,7 +3,7 @@ def niños(name):
     """Mensaje de bienvenida al
     usuario que inicio sesión"""
     print(f'''
-Bienvenido {name}. Que lindo verte por aquí''')
+Bienvenido {name}.''')
 
 #--------------------------------------------------
 
