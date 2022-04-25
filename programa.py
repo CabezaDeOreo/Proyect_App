@@ -3,13 +3,13 @@ def niños(name):
     """Mensaje de bienvenida al
     usuario que inicio sesión"""
     print(f'''
-Bienvenido {name} 😃''')
+Bienvenido {name}. Que lindo verte por aquí''')
 
 #--------------------------------------------------
 
 def sign_in():
     print("""-----------------------------------------------
-Para iniciar sesión, relleno lo siguiente.""")
+Para iniciar sesión, rellene lo siguiente.""")
     n_st=input("""
 Nombre del estudiante: """)
     d_st=input("""DNI: """)
@@ -89,7 +89,7 @@ Por favor, escribe el nombre del estudiante: """)
     while not (len(dni_st)==8):
         dni_st=input("""
 El DNI consta de 8 caracteres.
-Por favor, escribalo de nuevo.
+Por favor, escribelo de nuevo.
 DNI:  """)
     print("""
 Registrado con éxito""")
