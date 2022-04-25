@@ -23,7 +23,7 @@ El estudiante que usted indica no existe en nuestro sistema.""")
         sign_up()
     elif register=="No":
         print("""
-Gracias por su visita :)""")
+Gracias por su visita""")
     else:
         print("""
 Opción inválida""")
